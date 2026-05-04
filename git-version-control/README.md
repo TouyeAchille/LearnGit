@@ -29,11 +29,11 @@ Make sure you have the following installed:
 * Resources:
 
   * [About Git](https://git-scm.com/about)
-  * [Git Cheat Sheet]([https://git-scm.com/docs/git-cheat-](https://git-scm.com/docs/git-cheat-sheet))
-  * [Installing-Git]([https://git-scm.com/book/en/v2/Getting-Started-Installing-Git])
+  * [Git Cheat Sheet](https://git-scm.com/docs/git-cheat-sheet)
+  * [Installing-Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
-* **First Time Git Configuration**
-<br>
+**First Time Git Configuration**
+
 Before you can start using Git, you need to configure it. Run each of the following lines on the command line to make sure everything is set up.
 
 * sets up Git with your name
