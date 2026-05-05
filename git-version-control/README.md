@@ -30,7 +30,7 @@ Make sure you have the following installed:
 
   * [About Git](https://git-scm.com/about)
   * [Git Cheat Sheet](https://git-scm.com/docs/git-cheat-sheet)
-  * [Installing-Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+  * [Installing-Git](https://git-scm.com/install/mac)
 
 **First Time Git Configuration**
 
@@ -66,16 +66,16 @@ In this first part, you will learn the foundational local Git operations:
 
 Git allows you to start tracking a project in two ways:
 
-1. Turn a local folder into a Git repository
-2. Clone an existing remote repository
+1. You can create a local directory and turn it into a Git repository or You can take a local directory that is currently not under version control, and turn it into a Git repository
+2. Clone an existing remote repository on your local machine
 
 We begin with **method 1**.
 
 Create a new project directory:
 
 ```bash
-mkdir ~/git_basics
-cd ~/git_basics
+mkdir esme_ml
+cd esme_ml
 ```
 
 ---
@@ -135,7 +135,7 @@ touch README.md
 Add text:
 
 ```bash
-echo "MLOps training" > README.md
+echo "training ml model" > README.md
 ```
 
 Check status:
@@ -150,7 +150,7 @@ You will see **README.md** under **Untracked files** — meaning Git sees it but
 
 ## **2.2 Staging Changes**
 
-To start tracking the file:
+To start tracking the change on file:
 
 ```bash
 git add README.md
@@ -168,7 +168,7 @@ Now the file appears under **Changes to be committed** — meaning it is staged.
 
 ## **2.3 Committing Changes**
 
-Record the snapshot (Record changes to the local repository ):
+Record the snapshot (Record changes to the local repository):
 
 ```bash
 git commit -m "Add README file"
@@ -189,11 +189,10 @@ nothing to commit, working tree clean. This means you have a clean working direc
 ---
 
 # **3. Modifying Tracked Files**
-
-Edit the existing file:
+Let’s change a file that was already tracked. If you change a previously tracked file called README.md.
 
 ```bash
-echo "MLOps Pipeline" >> README.md
+echo "chose the best ml model after training" >> README.md
 ```
 
 Check status:
@@ -211,7 +210,7 @@ Stage and commit:
 
 ```bash
 git add README.md
-git commit -m "Update README with pipeline"
+git commit -m "Update README"
 ```
 
 ---
@@ -247,7 +246,7 @@ Track the `.gitignore` file:
 
 ```bash
 git add .gitignore
-git commit -m "Add .gitignore"
+git commit -m "Add .gitignore file"
 ```
 
 ---
@@ -282,8 +281,8 @@ git commit -m "Add DevOps principles note"
 
 Git provides two types of removal:
 
-* **git rm** → removes file from staging *and deletes it locally* 
-* **git rm --cached** → untracks file *but keeps it locally*
+* **git rm** : removes file from staging *and deletes it locally* 
+* **git rm --cached** : untracks file *but keeps it locally*
 
 ## **Example**
 
@@ -295,7 +294,9 @@ git add README.ML.md README.DL.md README.LLM.md
 git commit -m "Add ML, DL, LLM files"
 ```
 
-### 6.2 Remove a file manually
+### 6.2 Removing files
+
+To remove a file from Git, you have to remove it from your **tracked files (more accurately, remove it from your staging area)** and then commit. 
 
 ```bash
 rm README.LLM.md
@@ -314,7 +315,7 @@ git add README.LLM.md
 git commit -m "Remove README.LLM.md"
 ```
 
-### 6.3 Remove a file with git rm
+### 6.3 Remove a file with `git rm`
 
 ```bash
 git rm README.DL.md
@@ -322,6 +323,8 @@ git commit -m "Remove README.DL.md"
 ```
 
 ### 6.4 Untrack a file using git rm --cached
+
+This is particularly useful if you forgot to add something to your .gitignore file
 
 ```bash
 git rm --cached README.ML.md
@@ -332,6 +335,7 @@ git commit -m "Stop tracking README.ML.md"
 
 # **7. Viewing Commit History**
 
+After you have created several commits, or if you have cloned a repository with an existing commit history, you’ll probably want to look back to see what has happened. 
 See commit history:
 
 ```bash
@@ -344,17 +348,29 @@ Show changes for each commit:
 git log -p
 ```
 
-Show stats only:
+Show statistics for files modified in each commit:
 
 ```bash
 git log --stat
 ```
 
+prints each commit on a single line, which is useful if you’re looking at a lot of commits.
+
+```bash
+git log --oneline
+```
+
+Display an ASCII graph of the branch and merge history beside the log output.
+
+```bash
+git log --graph
+```
 ---
 
 # **8. Working With Remote Repositories**
 
-Remote repositories are stored on platforms like GitHub, GitLab, etc...
+Remote repositories are stored on platforms like GitHub, GitLab, etc... To be able to collaborate on any Git project, you need to know how to manage your remote repositories. 
+Remote repositories are versions of your project that are hosted on the Internet 
 
 ## **8.1 Listing remotes**
 
@@ -369,9 +385,6 @@ No remote appears yet because this repository was created with `git init`.
 ## **8.2 Adding a Remote**
 
 After creating a GitHub repository, connect it:
-Here is a **clean, clear, and professional** version of your text:
-
----
 
 To connect your local repository to a remote repository, use:
 
@@ -417,7 +430,7 @@ Once configured, you can run the same command anytime to push new commits to the
 
 Git provides two different ways to retrieve updates from a remote repository:
 
-* **`git pull`** → *fetch + merge*
+* **`git pull`** : *fetch + merge*
   Automatically downloads remote updates **and merges** them into your current branch.
 
 * **`git fetch`** → *fetch only*
