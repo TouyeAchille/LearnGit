@@ -234,11 +234,7 @@ Add this rule to `.gitignore`:
 echo "*.log" >> .gitignore
 ```
 
-Check status:
-
-```bash
-git status
-```
+c
 
 `README.log` no longer appears — Git ignores it.
 
@@ -507,7 +503,7 @@ git merge <remote-name>/<branch-name>
 ```
 ---
 
-### **Tip (Optional): Inspecting a Remote**
+### **Inspecting a Remote**
 
 If you want to see detailed information about a remote (its URL, branches, and tracking status), use:
 
@@ -568,8 +564,6 @@ git tag
 
 ---
 
-# **Tips (Optional)**
-
 ### **1. Sharing Tags**
 
 By default, `git push` does **not** transfer tags.
@@ -579,6 +573,7 @@ Push a single tag:
 ```bash
 git push <remote-name> <tagname>
 ```
+or
 
 Push **all** tags:
 
@@ -588,7 +583,7 @@ git push <remote-name> --tags
 
 ---
 
-### **2. Deleting Tags**
+### **Tip (Optional) : 2. Deleting Tags**
 
 Delete a local tag:
 
@@ -618,4 +613,73 @@ or:
 git tag --list
 ```
 
+## **4. Branch and Merge**
 
+Creating a New Branch called `testing`
+
+```bash
+git branch testing
+```
+Check status:
+you can see `master` and `testing` branch pointer to the same commit. But 
+How does Git know what branch you’re currently on? It keeps a special pointer called HEAD
+
+```bash
+git status
+```
+
+Now switch to that branch `testing`, This moves HEAD to point to the `testing` branch.
+
+```bash
+git checkout testing
+```
+
+Hint: you can create branch and switch directly into branch with one command
+```bash
+git checkout -b testin`
+```
+
+Create a new python file:
+
+## **4.1 Create a python file and write some code**
+
+```bash
+touch main.py
+```
+
+Stage and commit:
+
+```bash
+git add main.py
+git  commit -m 'update code main.py'
+```
+
+Now switch to that branch `master`, This moves HEAD to point to the `master` branch.
+
+```bash
+git checkout master
+```
+
+## **4.2 Create a new python test file and write code for testing some code in main module**
+touch test_somme.py
+
+Stage and commit:
+
+```bash
+git add test_somme.py
+git  commit -m 'update code test_somme.py'
+```
+
+Stage and commit:
+
+```bash
+git add main.py
+git  commit -m 'update code main.py'
+```
+
+You can run command below, it will print out the history of your commits, 
+showing where your branch pointers are and how your history has diverged.
+
+```bash
+git log --oneline --decorate --graph --all 
+```
