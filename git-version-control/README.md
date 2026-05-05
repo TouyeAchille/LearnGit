@@ -613,7 +613,7 @@ or:
 git tag --list
 ```
 
-## **4. Branch and Merge**
+## **4. Branching and Merging**
 
 Creating a New Branch called `testing`
 
@@ -669,12 +669,22 @@ Stage and commit:
 git add test_somme.py
 git  commit -m 'update code test_somme.py'
 ```
+Check status:
+
+```bash
+git status
+```
 
 Stage and commit:
 
 ```bash
 git add main.py
 git  commit -m 'update code main.py'
+```
+Check status:
+
+```bash
+git status
 ```
 
 You can run command below, it will print out the history of your commits, 
