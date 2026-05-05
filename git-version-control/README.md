@@ -1,3 +1,9 @@
+---
+noteId: "9da44990487111f19b2df1139983349d"
+tags: []
+
+---
+
 # **Lab 1 — Git**
 
 ## **Overview**
@@ -693,3 +699,7 @@ showing where your branch pointers are and how your history has diverged.
 ```bash
 git log --oneline --decorate --graph --all 
 ```
+
+## Github Project: Git Commands Documentation Template:
+
+  * [Project TP ](https://docs.google.com/document/d/1sqDkIJlGH-GRhikZjF2TqWfzBiYF6lPLBJrsLocQu8c/edit?usp=sharing)
